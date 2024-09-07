@@ -1,5 +1,6 @@
 package com.educandoweb.courseNelioAlves.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -17,8 +18,11 @@ public class Payment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Instant moment;
+
+
     @OneToOne
     @MapsId
+    @JsonIgnore
     private Order order;
 
     public Payment(){
